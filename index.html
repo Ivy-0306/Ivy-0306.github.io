@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的大学经历与成果</title>  <!-- 🎯 修改1：改成你的标题 -->
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .resume-container { max-width: 900px; margin: 0 auto; background: white; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #2c3e50, #3498db); color: white; padding: 40px; text-align: center; }
+        .photo { width: 120px; height: 160px; object-fit: cover; border: 4px solid white; border-radius: 5px; margin-bottom: 20px; }
+        .name { font-size: 2.2em; margin-bottom: 5px; }
+        .major { font-size: 1.2em; opacity: 0.9; }
+        .contact-info { margin-top: 15px; font-size: 0.9em; }
+        .section { padding: 30px 40px; border-bottom: 1px solid #eee; }
+        h2 { color: #2c3e50; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 2px solid #3498db; }
+        
+        /* 🎯 图片展示样式 - 可以显示多张图片 */
+        .photo-gallery { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+            gap: 15px; 
+            margin-top: 15px; 
+        }
+        .gallery-item { 
+            text-align: center; 
+        }
+        .gallery-img { 
+            width: 100%; 
+            height: 120px; 
+            object-fit: cover; 
+            border-radius: 8px; 
+            border: 2px solid #e0e0e0;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        .gallery-caption {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .gpa-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px; }
+        .gpa-item { background: #f8f9fa; padding: 15px; border-radius: 8px; text-align: center; }
+        .gpa-value { font-size: 1.5em; font-weight: bold; color: #3498db; }
+        .course-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .course-table th, .course-table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        .course-table th { background: #f8f9fa; font-weight: 600; }
+        .certificate-grid, .activity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 15px; }
+        .certificate-item, .activity-item { background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #3498db; }
+        .certificate-title, .activity-title { font-weight: bold; margin-bottom: 8px; color: #2c3e50; }
+        .certificate-date, .activity-date { color: #666; font-size: 0.9em; }
+        .activity-role { color: #3498db; font-weight: 500; }
+        .internship-item { margin-bottom: 25px; }
+        .company { font-weight: bold; color: #2c3e50; font-size: 1.1em; }
+        .internship-role { color: #3498db; margin: 5px 0; }
+        .internship-date { color: #666; font-size: 0.9em; }
+        .internship-description { margin-top: 10px; padding-left: 15px; }
+        .internship-description li { margin-bottom: 5px; }
+        
+        @media (max-width: 768px) {
+            .section { padding: 20px; }
+            .gpa-grid, .certificate-grid, .activity-grid { grid-template-columns: 1fr; }
+            .photo-gallery { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <!-- 🎯 头部信息 -->
+        <div class="header">
+            <!-- 🎯 修改2：上传个人证件照 -->
+            <img src="个人证件照.jpg" alt="个人证件照" class="photo">
+            <h1 class="name">肖玉宁</h1>  <!-- 🎯 修改3：改成你的姓名 -->
+            <p class="major">港口与航运管理专业 · 深圳职业技术大学</p>  <!-- 🎯 修改4：专业和学校 -->
+            <p class="major">2026届毕业生</p>  <!-- 🎯 修改5：年级 -->
+            <div class="contact-info">
+                电话：132-6890-3849 | 邮箱：3177964423@qq.com  <!-- 🎯 修改6：联系方式 -->
+            </div>
+        </div>
+        
+        <!-- 🎯 学习成绩 -->
+        <div class="section">
+            <h2>📊 学习成绩</h2>
+            <div class="gpa-grid">
+                <div class="gpa-item">
+                    <div>总绩点</div>
+                    <div class="gpa-value">3.68/4.0</div>  <!-- 🎯 修改7：你的绩点 -->
+                </div>
+                <div class="gpa-item">
+                    <div>专业排名</div>
+                    <div class="gpa-value">3/156</div>  <!-- 🎯 修改8：你的排名 -->
+                </div>
+                <div class="gpa-item">
+                    <div>核心课程平均分</div>
+                    <div class="gpa-value">95</div>  <!-- 🎯 修改9：平均分 -->
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 25px; color: #2c3e50;">主要课程成绩</h3>
+            <table class="course-table">
+                <tr><th>课程名称</th><th>成绩</th><th>课程名称</th><th>成绩</th></tr>
+                <tr>
+                    <td>数据结构与算法</td><td>92</td>  <!-- 🎯 修改10：课程和成绩 -->
+                    <td>操作系统</td><td>88</td>
+                </tr>
+                <tr>
+                    <td>计算机网络</td><td>90</td>
+                    <td>数据库系统</td><td>94</td>
+                </tr>
+                <!-- 🎯 可以在这里添加更多课程 -->
+            </table>
+            
+            <!-- 🎯 学习成绩相关图片（成绩单等） -->
+            <h3 style="margin-top: 25px; color: #2c3e50;">成绩证明</h3>
+            <div class="photo-gallery">
+                <!-- 🎯 修改11：上传成绩单图片 -->
+                <div class="gallery-item">
+                    <img src="transcript1.jpg" alt="成绩单1" class="gallery-img">
+                    <div class="gallery-caption">学期成绩单</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="transcript2.jpg" alt="成绩单2" class="gallery-img">
+                    <div class="gallery-caption">专业排名证明</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多成绩相关图片 -->
+            </div>
+        </div>
+        
+        <!-- 🎯 证书奖状 -->
+        <div class="section">
+            <h2>🏆 证书与奖项</h2>
+            <div class="certificate-grid">
+                <div class="certificate-item">
+                    <div class="certificate-title">国家奖学金</div>  <!-- 🎯 修改12：奖项名称 -->
+                    <div class="certificate-date">2023年</div>  <!-- 🎯 修改13：获奖时间 -->
+                    <div>校级最高荣誉，奖励学习成绩优异的学生</div>  <!-- 🎯 修改14：奖项描述 -->
+                </div>
+                <div class="certificate-item">
+                    <div class="certificate-title">全国大学生程序设计大赛</div>
+                    <div class="certificate-date">2023年 · 省级二等奖</div>
+                    <div>团队协作解决复杂算法问题</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多证书 -->
+            </div>
+            
+            <!-- 🎯 证书图片展示 -->
+            <h3 style="margin-top: 25px; color: #2c3e50;">证书照片</h3>
+            <div class="photo-gallery">
+                <!-- 🎯 修改15：上传证书图片 -->
+                <div class="gallery-item">
+                    <img src="certificate1.jpg" alt="奖学金证书" class="gallery-img">
+                    <div class="gallery-caption">国家奖学金证书</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="certificate2.jpg" alt="竞赛证书" class="gallery-img">
+                    <div class="gallery-caption">程序设计大赛证书</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="certificate3.jpg" alt="英语证书" class="gallery-img">
+                    <div class="gallery-caption">英语六级证书</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多证书图片 -->
+            </div>
+        </div>
+        
+        <!-- 🎯 社团活动 -->
+        <div class="section">
+            <h2>👥 社团与组织经历</h2>
+            <div class="activity-grid">
+                <div class="activity-item">
+                    <div class="activity-title">计算机协会 · 技术部部长</div>  <!-- 🎯 修改16：社团职务 -->
+                    <div class="activity-date">2022.09 - 2024.06</div>  <!-- 🎯 修改17：参与时间 -->
+                    <div class="activity-role">组织技术分享、编程竞赛</div>  <!-- 🎯 修改18：担任角色 -->
+                    <div>• 组织每周技术分享会，参与人数累计500+</div>  <!-- 🎯 修改19：具体贡献 -->
+                    <div>• 策划举办校园编程大赛，吸引200+选手参与</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-title">志愿者协会 · 项目组成员</div>
+                    <div class="activity-date">2021.10 - 2023.06</div>
+                    <div class="activity-role">参与社区服务、公益活动</div>
+                    <div>• 参与"编程进社区"活动，教授老年人使用智能手机</div>
+                    <div>• 组织图书捐赠活动，筹集图书1000+册</div>
+                </div>
+            </div>
+            
+            <!-- 🎯 社团活动图片展示 -->
+            <h3 style="margin-top: 25px; color: #2c3e50;">活动照片</h3>
+            <div class="photo-gallery">
+                <!-- 🎯 修改20：上传活动图片 -->
+                <div class="gallery-item">
+                    <img src="activity1.jpg" alt="技术分享会" class="gallery-img">
+                    <div class="gallery-caption">技术分享会现场</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="activity2.jpg" alt="编程竞赛" class="gallery-img">
+                    <div class="gallery-caption">编程大赛现场</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="activity3.jpg" alt="志愿者活动" class="gallery-img">
+                    <div class="gallery-caption">社区志愿服务</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="activity4.jpg" alt="团队合影" class="gallery-img">
+                    <div class="gallery-caption">社团成员合影</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多活动图片 -->
+            </div>
+        </div>
+        
+        <!-- 🎯 实习经历 -->
+        <div class="section">
+            <h2>💼 实习经历</h2>
+            <div class="internship-item">
+                <div class="company">某某科技有限公司</div>  <!-- 🎯 修改21：公司名称 -->
+                <div class="internship-role">软件开发实习生</div>  <!-- 🎯 修改22：实习岗位 -->
+                <div class="internship-date">2023.07 - 2023.09</div>  <!-- 🎯 修改23：实习时间 -->
+                <ul class="internship-description">
+                    <li>参与公司内部管理系统的前端开发，使用Vue.js框架</li>  <!-- 🎯 修改24：工作内容 -->
+                    <li>负责用户管理模块的开发，实现权限控制功能</li>
+                    <li>优化系统性能，页面加载速度提升30%</li>
+                </ul>
+            </div>
+            
+            <!-- 🎯 实习相关图片 -->
+            <h3 style="margin-top: 25px; color: #2c3e50;">实习工作记录</h3>
+            <div class="photo-gallery">
+                <!-- 🎯 修改25：上传实习相关图片 -->
+                <div class="gallery-item">
+                    <img src="internship1.jpg" alt="工作环境" class="gallery-img">
+                    <div class="gallery-caption">工作环境</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="internship2.jpg" alt="项目展示" class="gallery-img">
+                    <div class="gallery-caption">项目成果展示</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多实习图片 -->
+            </div>
+        </div>
+        
+        <!-- 🎯 技能特长 -->
+        <div class="section">
+            <h2>🛠️ 技能特长</h2>
+            <div style="margin-top: 15px;">
+                <div style="margin-bottom: 15px;">
+                    <strong>编程语言：</strong>Java, Python, JavaScript  <!-- 🎯 修改26：你的技能 -->
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <strong>Web开发：</strong>HTML/CSS, Vue.js, Spring Boot
+                </div>
+                <div>
+                    <strong>开发工具：</strong>Git, Visual Studio, IntelliJ IDEA
+                </div>
+            </div>
+            
+            <!-- 🎯 技能相关图片（项目截图等） -->
+            <h3 style="margin-top: 25px; color: #2c3e50;">项目作品</h3>
+            <div class="photo-gallery">
+                <!-- 🎯 修改27：上传项目图片 -->
+                <div class="gallery-item">
+                    <img src="project1.jpg" alt="个人项目" class="gallery-img">
+                    <div class="gallery-caption">个人博客系统</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="project2.jpg" alt="团队项目" class="gallery-img">
+                    <div class="gallery-caption">电商网站项目</div>
+                </div>
+                <!-- 🎯 可以在这里添加更多项目图片 -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
