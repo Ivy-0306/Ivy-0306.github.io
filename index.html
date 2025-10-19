@@ -50,13 +50,16 @@
             width: 150px;
             height: 180px;
             border-radius: 10px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
             margin-right: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 14px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--secondary);
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         .info {
@@ -712,6 +715,13 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             font-weight: bold;
             color: var(--primary);
+            overflow: hidden;
+        }
+        
+        .ai-qr img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
         /* 响应式设计 */
@@ -853,7 +863,9 @@
     <div class="container">
         <!-- 头部信息 -->
         <div class="header">
-            <div class="photo">个人证件照</div>
+            <div class="photo">
+                <img src="images/personal/my-photo.jpg" alt="肖玉宁">
+            </div>
             <div class="info">
                 <div class="name">肖玉宁 <span class="name-en">(Ivy)</span></div>
                 <div class="job-title">求职意向: 货运代理</div>
@@ -1339,49 +1351,49 @@
                     <div class="gallery-title">活动展示</div>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <img src="images/campus/深职大2024校园开放日.jpg" alt="深职大2024校园开放日" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2024校园开放日</div>
                                 <div class="caption-desc">就业促进协会工作人员合影留念</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <img src="images/campus/深职大第六届大学生生涯体验周.jpg" alt="深职大第六届大学生生涯体验周" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大第六届大学生生涯体验周</div>
                                 <div class="caption-desc">作为就业促进协会统筹会长代表发言</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <img src="images/campus/华为慧通2025届校园招聘宣讲会.jpg" alt="华为慧通2025届校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">华为慧通2025届校园招聘宣讲会</div>
                                 <div class="caption-desc">和华为慧通公司领导合影留念</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            <img src="images/campus/广州石化、深圳地铁2025年校园招聘宣讲会.jpg" alt="广州石化、深圳地铁2025年校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">广州石化、深圳地铁2025年校园招聘宣讲会</div>
                                 <div class="caption-desc">广州石化2025年校园招聘宣讲会现场<br>深圳地铁2025年校园招聘面试现场</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            <img src="images/campus/2024年深职大首场校级专科综合招聘会.jpg" alt="2024年深职大首场校级专科综合招聘会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">2024年深职大首场校级专科综合招聘会</div>
                                 <div class="caption-desc">陪深圳人社局领导、校领导、招就办老师巡场</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                            <img src="images/campus/参与的各院级招聘会（经管数创）.jpg" alt="参与的各院级招聘会（经管数创）" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">参与的各院级招聘会（经管数创）</div>
                                 <div class="caption-desc">参与各院级招聘会的工作人员合影留念</div>
                             </div>
                         </div>
                         <div class="gallery-item">
-                            <div class="gallery-img" style="background: linear-gradient(135deg, #cd9cf2 0%, #f6f3ff 100%);"></div>
+                            <img src="images/campus/深职大2025校园开放日校园参观讲解.jpg" alt="深职大2025校园开放日校园参观讲解" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2025校园开放日校园参观讲解</div>
                                 <div class="caption-desc">给来校参观学生讲解校园标志性地标</div>
@@ -1510,28 +1522,28 @@
                 <div class="gallery-title">项目展示</div>
                 <div class="gallery">
                     <div class="gallery-item">
-                        <div class="gallery-img" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        <img src="images/ai-project/数据处理任务示例.jpg" alt="数据处理任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据处理任务示例</div>
                             <div class="caption-desc">使用Python进行数据清洗与分析</div>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-img" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        <img src="images/ai-project/数据可视化任务示例.jpg" alt="数据可视化任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化任务示例</div>
                             <div class="caption-desc">使用Tableau制作交互式数据看板</div>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-img" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <img src="images/ai-project/数据可视化（企业10年内时空变化图）示例.jpg" alt="数据可视化（企业10年内时空变化图）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化（企业10年内时空变化图）示例</div>
                             <div class="caption-desc">企业分布与发展趋势时空分析</div>
                         </div>
                     </div>
                     <div class="gallery-item">
-                        <div class="gallery-img" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                        <img src="images/ai-project/功能开发（飞机大作战游戏）示例.jpg" alt="功能开发（飞机大作战游戏）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">功能开发（飞机大作战游戏）示例</div>
                             <div class="caption-desc">使用C#开发的2D游戏项目</div>
@@ -1548,7 +1560,7 @@
                     <p>通过技术手段提升工作效率，将创新思维转化为实际应用。</p>
                 </div>
                 <div class="ai-qr">
-                    <div>AI+VS=二维码</div>
+                    <img src="images/ai-project/AI+VS=二维码.jpg" alt="AI+VS=二维码">
                 </div>
             </div>
         </section>
