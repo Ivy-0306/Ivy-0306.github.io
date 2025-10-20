@@ -318,6 +318,215 @@
             opacity: 0.9;
         }
         
+        /* 证书展示样式 */
+        .certificates-section {
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 2px dashed #e0e0e0;
+        }
+        
+        .carousel-container {
+            position: relative;
+            margin: 40px 0;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        
+        .carousel-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            width: calc(250px * 14); /* 7张图片 * 2倍用于无缝滚动 */
+        }
+        
+        .certificate-item {
+            width: 230px;
+            margin: 0 10px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .certificate-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .certificate-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 7)); /* 移动7张图片的距离 */
+            }
+        }
+        
+        .carousel-container:hover .carousel-track {
+            animation-play-state: paused;
+        }
+        
+        .certificates-summary {
+            margin-top: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e1f0ff 100%);
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .summary-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .summary-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 12px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--primary);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+        
+        .summary-item:hover {
+            background: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .summary-text {
+            font-size: 18px;
+            color: var(--dark);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        /* 图片放大模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .modal-content:hover {
+            transform: translate(-50%, -50%) scale(1.02);
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .nav-btn-modal {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1001;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-btn-modal:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .prev {
+            left: 20px;
+        }
+        
+        .next {
+            right: 20px;
+        }
+        
+        .image-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 1001;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         /* 实战经验部分样式 */
         .experience-header {
             display: flex;
@@ -623,122 +832,6 @@
             opacity: 0.9;
         }
         
-        /* 图片放大模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            animation: fadeIn 0.3s;
-        }
-        
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 90%;
-            max-height: 90%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 10px;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .modal-content:hover {
-            transform: translate(-50%, -50%) scale(1.02);
-        }
-        
-        .modal-caption {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-            text-align: center;
-            color: #ccc;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 5px;
-        }
-        
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #f1f1f1;
-            font-size: 40px;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .nav-btn-modal {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            font-size: 24px;
-            padding: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            z-index: 1001;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .nav-btn-modal:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-        
-        .prev {
-            left: 20px;
-        }
-        
-        .next {
-            right: 20px;
-        }
-        
-        .image-counter {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            color: white;
-            font-size: 18px;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 15px;
-            border-radius: 20px;
-            z-index: 1001;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         /* AI+编程部分样式 */
         .ai-section {
             margin-top: 40px;
@@ -923,6 +1016,19 @@
             .next {
                 right: 10px;
             }
+            
+            .certificate-item {
+                width: 200px;
+            }
+            
+            .certificate-image {
+                height: 140px;
+            }
+            
+            .summary-list {
+                flex-direction: column;
+                align-items: center;
+            }
         }
         
         @media (max-width: 480px) {
@@ -998,7 +1104,6 @@
         <button class="nav-btn-modal next" onclick="changeImage(1)">&#10095;</button>
         <div class="image-counter" id="imageCounter"></div>
         <img class="modal-content" id="modalImage">
-        <div id="modalCaption" class="modal-caption"></div>
     </div>
 
     <div class="container">
@@ -1240,13 +1345,111 @@
                 <div class="ranking-text">专业绩点排名：4/155 (前3%)</div>
                 <div class="ranking-subtext">绩点持续提升并稳定于3.65+，专业排名从第12名跃升并稳定于前5名</div>
             </div>
+            
+            <!-- 证书展示部分 -->
+            <div class="certificates-section">
+                <h2 class="sub-section-title">荣誉证书</h2>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- 证书1 -->
+                        <div class="certificate-item" onclick="openModal(0)">
+                            <img src="1.jpg" alt="校二等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书2 -->
+                        <div class="certificate-item" onclick="openModal(1)">
+                            <img src="2.jpg" alt="校二等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书3 -->
+                        <div class="certificate-item" onclick="openModal(2)">
+                            <img src="3.jpg" alt="校三等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书4 -->
+                        <div class="certificate-item" onclick="openModal(3)">
+                            <img src="4.jpg" alt="校级三好学生证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书5 -->
+                        <div class="certificate-item" onclick="openModal(4)">
+                            <img src="5.jpg" alt="演讲比赛优秀奖证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书6 -->
+                        <div class="certificate-item" onclick="openModal(5)">
+                            <img src="6.jpg" alt="优秀志愿者证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书7 -->
+                        <div class="certificate-item" onclick="openModal(6)">
+                            <img src="7.jpg" alt="优秀会员证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 重复一遍以实现无缝滚动 -->
+                        <!-- 证书1 -->
+                        <div class="certificate-item" onclick="openModal(0)">
+                            <img src="1.jpg" alt="校二等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书2 -->
+                        <div class="certificate-item" onclick="openModal(1)">
+                            <img src="2.jpg" alt="校二等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书3 -->
+                        <div class="certificate-item" onclick="openModal(2)">
+                            <img src="3.jpg" alt="校三等奖学金证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书4 -->
+                        <div class="certificate-item" onclick="openModal(3)">
+                            <img src="4.jpg" alt="校级三好学生证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书5 -->
+                        <div class="certificate-item" onclick="openModal(4)">
+                            <img src="5.jpg" alt="演讲比赛优秀奖证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书6 -->
+                        <div class="certificate-item" onclick="openModal(5)">
+                            <img src="6.jpg" alt="优秀志愿者证书" class="certificate-image">
+                        </div>
+                        
+                        <!-- 证书7 -->
+                        <div class="certificate-item" onclick="openModal(6)">
+                            <img src="7.jpg" alt="优秀会员证书" class="certificate-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certificates-summary">
+                    <h2 class="summary-title">荣誉总结</h2>
+                    <div class="summary-list">
+                        <div class="summary-item">校二等奖学金（2次）</div>
+                        <div class="summary-item">校三等奖学金（1次）</div>
+                        <div class="summary-item">校级三好学生</div>
+                        <div class="summary-item">校大学生讲思政课演讲比赛优秀奖</div>
+                        <div class="summary-item">大学生生涯体验周优秀志愿者</div>
+                        <div class="summary-item">就业促进协会优秀会员</div>
+                    </div>
+                    <p class="summary-text">
+                        在校期间，荣获<span class="highlight">校二等奖学金2次、校三等奖学金1次</span>，
+                        并获评<span class="highlight">校级三好学生</span>，展现了优秀的学术能力与综合素质。
+                        同时积极参与校园活动，获得<span class="highlight">演讲比赛优秀奖、优秀志愿者和优秀会员</span>等荣誉，
+                        体现了全面发展的个人素养。
+                    </p>
+                </div>
+            </div>
         </section>
         
         <!-- 第二部分：实战经验 -->
         <section id="practical-experience" class="resume-section" style="display: none;">
             <h1 class="section-title">实战经验</h1>
             <div class="section-subtitle">
-                东莞金邦物流有限公司 · 货运代理销售助理 · 2024.7—2024.9
+                东莞金邦物流有限公司 · 货运代理销售助理 · 2025.7—2025.9
             </div>
             
             <div class="experience-header">
@@ -1256,7 +1459,7 @@
                 </div>
                 <div class="position-info">
                     <div class="position-title">货运代理销售助理</div>
-                    <div class="position-period">2024.7—2024.9 | 全职实习</div>
+                    <div class="position-period">2025.7—2025.9 | 全职实习</div>
                 </div>
             </div>
             
@@ -1491,49 +1694,49 @@
                 <div class="gallery-section">
                     <div class="gallery-title">活动展示</div>
                     <div class="gallery">
-                        <div class="gallery-item" onclick="openModal(0)">
+                        <div class="gallery-item" onclick="openModalGallery(0)">
                             <img src="深职大2024校园开放日.jpg" alt="深职大2024校园开放日" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2024校园开放日</div>
                                 <div class="caption-desc">就业促进协会工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(1)">
+                        <div class="gallery-item" onclick="openModalGallery(1)">
                             <img src="深职大第六届大学生生涯体验周.jpg" alt="深职大第六届大学生生涯体验周" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大第六届大学生生涯体验周</div>
                                 <div class="caption-desc">作为就业促进协会统筹会长代表发言</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(2)">
+                        <div class="gallery-item" onclick="openModalGallery(2)">
                             <img src="华为慧通2025届校园招聘宣讲会.jpg" alt="华为慧通2025届校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">华为慧通2025届校园招聘宣讲会</div>
                                 <div class="caption-desc">和华为慧通公司领导合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(3)">
+                        <div class="gallery-item" onclick="openModalGallery(3)">
                             <img src="广州石化、深圳地铁2025年校园招聘宣讲会.jpg" alt="广州石化、深圳地铁2025年校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">广州石化、深圳地铁2025年校园招聘宣讲会</div>
                                 <div class="caption-desc">广州石化2025年校园招聘宣讲会现场<br>深圳地铁2025年校园招聘面试现场</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(4)">
+                        <div class="gallery-item" onclick="openModalGallery(4)">
                             <img src="2024年深职大首场校级专科综合招聘会.jpg" alt="2024年深职大首场校级专科综合招聘会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">2024年深职大首场校级专科综合招聘会</div>
                                 <div class="caption-desc">陪深圳人社局领导、校领导、招就办老师巡场</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(5)">
+                        <div class="gallery-item" onclick="openModalGallery(5)">
                             <img src="参与的各院级招聘会（经管数创）.jpg" alt="参与的各院级招聘会（经管数创）" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">参与的各院级招聘会（经管数创）</div>
                                 <div class="caption-desc">参与各院级招聘会的工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(6)">
+                        <div class="gallery-item" onclick="openModalGallery(6)">
                             <img src="深职大2025校园开放日校园参观讲解.jpg" alt="深职大2025校园开放日校园参观讲解" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2025校园开放日校园参观讲解</div>
@@ -1662,28 +1865,28 @@
             <div class="gallery-section">
                 <div class="gallery-title">项目展示</div>
                 <div class="gallery">
-                    <div class="gallery-item" onclick="openModal(7)">
+                    <div class="gallery-item" onclick="openModalGallery(7)">
                         <img src="数据处理任务示例.jpg" alt="数据处理任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据处理任务示例</div>
                             <div class="caption-desc">使用Python进行数据清洗与分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(8)">
+                    <div class="gallery-item" onclick="openModalGallery(8)">
                         <img src="数据可视化任务示例.jpg" alt="数据可视化任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化任务示例</div>
                             <div class="caption-desc">使用Tableau制作交互式数据看板</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(9)">
+                    <div class="gallery-item" onclick="openModalGallery(9)">
                         <img src="数据可视化（企业10年内时空变化图）示例.jpg" alt="数据可视化（企业10年内时空变化图）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化（企业10年内时空变化图）示例</div>
                             <div class="caption-desc">企业分布与发展趋势时空分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(10)">
+                    <div class="gallery-item" onclick="openModalGallery(10)">
                         <img src="功能开发（飞机大作战游戏）示例.jpg" alt="功能开发（飞机大作战游戏）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">功能开发（飞机大作战游戏）示例</div>
@@ -1700,7 +1903,7 @@
                     <p>展示了我在AI辅助编程、前端开发、数据可视化等方面的综合能力。</p>
                     <p>通过技术手段提升工作效率，将创新思维转化为实际应用。</p>
                 </div>
-                <div class="ai-qr" onclick="openModal(11)">
+                <div class="ai-qr" onclick="openModalGallery(11)">
                     <img src="AI+VS=二维码.jpg" alt="AI+VS=二维码">
                 </div>
             </div>
@@ -1710,17 +1913,30 @@
     <script>
         // 全局变量
         let currentImageIndex = 0;
-        const images = [];
+        const certificateImages = [];
+        const galleryImages = [];
         
-        // 初始化图片数组
-        function initImages() {
-            // 收集所有图片元素
+        // 初始化证书图片数组
+        function initCertificateImages() {
+            // 收集证书图片（只取前7张，避免重复）
+            const certificateItems = document.querySelectorAll('.certificate-item');
+            for (let i = 0; i < 7; i++) {
+                const img = certificateItems[i].querySelector('img');
+                certificateImages.push({
+                    src: img.src,
+                    alt: img.alt
+                });
+            }
+        }
+        
+        // 初始化画廊图片数组
+        function initGalleryImages() {
+            // 收集画廊图片
             const galleryItems = document.querySelectorAll('.gallery-item img');
             const aiQr = document.querySelector('.ai-qr img');
             
-            // 添加组织协调部分的图片
             for (let i = 0; i < galleryItems.length; i++) {
-                images.push({
+                galleryImages.push({
                     src: galleryItems[i].src,
                     alt: galleryItems[i].alt,
                     caption: galleryItems[i].closest('.gallery-item').querySelector('.gallery-caption').innerHTML
@@ -1729,7 +1945,7 @@
             
             // 添加AI+编程部分的图片
             if (aiQr) {
-                images.push({
+                galleryImages.push({
                     src: aiQr.src,
                     alt: aiQr.alt,
                     caption: aiQr.alt
@@ -1757,7 +1973,8 @@
         // 点击展开/收起课程列表
         document.addEventListener('DOMContentLoaded', function() {
             // 初始化图片数组
-            initImages();
+            initCertificateImages();
+            initGalleryImages();
             
             const chainItems = document.querySelectorAll('.chain-item');
             chainItems.forEach(item => {
@@ -1844,19 +2061,30 @@
             event.currentTarget.classList.add('active');
         }
         
-        // 图片放大功能
+        // 证书图片放大功能
         function openModal(index) {
             currentImageIndex = index;
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
-            const captionText = document.getElementById("modalCaption");
             const counterText = document.getElementById("imageCounter");
             
             modal.style.display = "block";
-            modalImg.src = images[currentImageIndex].src;
-            modalImg.alt = images[currentImageIndex].alt;
-            captionText.innerHTML = images[currentImageIndex].caption;
-            counterText.innerHTML = `${currentImageIndex + 1} / ${images.length}`;
+            modalImg.src = certificateImages[currentImageIndex].src;
+            modalImg.alt = certificateImages[currentImageIndex].alt;
+            counterText.innerHTML = `${currentImageIndex + 1} / ${certificateImages.length}`;
+        }
+        
+        // 画廊图片放大功能
+        function openModalGallery(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const counterText = document.getElementById("imageCounter");
+            
+            modal.style.display = "block";
+            modalImg.src = galleryImages[currentImageIndex].src;
+            modalImg.alt = galleryImages[currentImageIndex].alt;
+            counterText.innerHTML = `${currentImageIndex + 1} / ${galleryImages.length}`;
         }
         
         // 切换图片
@@ -1864,20 +2092,18 @@
             currentImageIndex += direction;
             
             // 循环处理
-            if (currentImageIndex >= images.length) {
+            if (currentImageIndex >= certificateImages.length) {
                 currentImageIndex = 0;
             } else if (currentImageIndex < 0) {
-                currentImageIndex = images.length - 1;
+                currentImageIndex = certificateImages.length - 1;
             }
             
             const modalImg = document.getElementById("modalImage");
-            const captionText = document.getElementById("modalCaption");
             const counterText = document.getElementById("imageCounter");
             
-            modalImg.src = images[currentImageIndex].src;
-            modalImg.alt = images[currentImageIndex].alt;
-            captionText.innerHTML = images[currentImageIndex].caption;
-            counterText.innerHTML = `${currentImageIndex + 1} / ${images.length}`;
+            modalImg.src = certificateImages[currentImageIndex].src;
+            modalImg.alt = certificateImages[currentImageIndex].alt;
+            counterText.innerHTML = `${currentImageIndex + 1} / ${certificateImages.length}`;
         }
         
         // 关闭模态框
