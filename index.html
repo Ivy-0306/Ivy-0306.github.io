@@ -623,6 +623,72 @@
             opacity: 0.9;
         }
         
+        /* 图片放大模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-caption {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            text-align: center;
+            color: #ccc;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+        }
+        
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         /* AI+编程部分样式 */
         .ai-section {
             margin-top: 40px;
@@ -860,6 +926,13 @@
     </style>
 </head>
 <body>
+    <!-- 图片放大模态框 -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
     <div class="container">
         <!-- 头部信息 -->
         <div class="header">
@@ -1350,49 +1423,49 @@
                 <div class="gallery-section">
                     <div class="gallery-title">活动展示</div>
                     <div class="gallery">
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="深职大2024校园开放日.jpg" alt="深职大2024校园开放日" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2024校园开放日</div>
                                 <div class="caption-desc">就业促进协会工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="深职大第六届大学生生涯体验周.jpg" alt="深职大第六届大学生生涯体验周" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大第六届大学生生涯体验周</div>
                                 <div class="caption-desc">作为就业促进协会统筹会长代表发言</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="华为慧通2025届校园招聘宣讲会.jpg" alt="华为慧通2025届校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">华为慧通2025届校园招聘宣讲会</div>
                                 <div class="caption-desc">和华为慧通公司领导合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="广州石化、深圳地铁2025年校园招聘宣讲会.jpg" alt="广州石化、深圳地铁2025年校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">广州石化、深圳地铁2025年校园招聘宣讲会</div>
                                 <div class="caption-desc">广州石化2025年校园招聘宣讲会现场<br>深圳地铁2025年校园招聘面试现场</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="2024年深职大首场校级专科综合招聘会.jpg" alt="2024年深职大首场校级专科综合招聘会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">2024年深职大首场校级专科综合招聘会</div>
                                 <div class="caption-desc">陪深圳人社局领导、校领导、招就办老师巡场</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="参与的各院级招聘会（经管数创）.jpg" alt="参与的各院级招聘会（经管数创）" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">参与的各院级招聘会（经管数创）</div>
                                 <div class="caption-desc">参与各院级招聘会的工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item">
+                        <div class="gallery-item" onclick="openModal(this)">
                             <img src="深职大2025校园开放日校园参观讲解.jpg" alt="深职大2025校园开放日校园参观讲解" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2025校园开放日校园参观讲解</div>
@@ -1521,28 +1594,28 @@
             <div class="gallery-section">
                 <div class="gallery-title">项目展示</div>
                 <div class="gallery">
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openModal(this)">
                         <img src="数据处理任务示例.jpg" alt="数据处理任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据处理任务示例</div>
                             <div class="caption-desc">使用Python进行数据清洗与分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openModal(this)">
                         <img src="数据可视化任务示例.jpg" alt="数据可视化任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化任务示例</div>
                             <div class="caption-desc">使用Tableau制作交互式数据看板</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openModal(this)">
                         <img src="数据可视化（企业10年内时空变化图）示例.jpg" alt="数据可视化（企业10年内时空变化图）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化（企业10年内时空变化图）示例</div>
                             <div class="caption-desc">企业分布与发展趋势时空分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item">
+                    <div class="gallery-item" onclick="openModal(this)">
                         <img src="功能开发（飞机大作战游戏）示例.jpg" alt="功能开发（飞机大作战游戏）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">功能开发（飞机大作战游戏）示例</div>
@@ -1559,7 +1632,7 @@
                     <p>展示了我在AI辅助编程、前端开发、数据可视化等方面的综合能力。</p>
                     <p>通过技术手段提升工作效率，将创新思维转化为实际应用。</p>
                 </div>
-                <div class="ai-qr">
+                <div class="ai-qr" onclick="openModal(this)">
                     <img src="AI+VS=二维码.jpg" alt="AI+VS=二维码">
                 </div>
             </div>
@@ -1670,6 +1743,50 @@
             // 设置当前关键词卡为活动状态
             event.currentTarget.classList.add('active');
         }
+        
+        // 图片放大功能
+        function openModal(element) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            
+            modal.style.display = "block";
+            
+            // 获取图片元素
+            let imgElement;
+            if (element.classList.contains('gallery-item')) {
+                imgElement = element.querySelector('img');
+                captionText.innerHTML = element.querySelector('.gallery-caption').innerHTML;
+            } else if (element.classList.contains('ai-qr')) {
+                imgElement = element.querySelector('img');
+                captionText.innerHTML = element.querySelector('img').alt;
+            } else {
+                imgElement = element;
+                captionText.innerHTML = element.alt;
+            }
+            
+            modalImg.src = imgElement.src;
+            modalImg.alt = imgElement.alt;
+        }
+        
+        // 关闭模态框
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('imageModal').style.display = "none";
+        });
+        
+        // 点击模态框背景关闭
+        document.getElementById('imageModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.style.display = "none";
+            }
+        });
+        
+        // 按ESC键关闭模态框
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                document.getElementById('imageModal').style.display = "none";
+            }
+        });
     </script>
 </body>
 </html>
