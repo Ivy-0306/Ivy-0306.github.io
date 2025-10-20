@@ -647,6 +647,12 @@
             transform: translate(-50%, -50%);
             border-radius: 10px;
             box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .modal-content:hover {
+            transform: translate(-50%, -50%) scale(1.02);
         }
         
         .modal-caption {
@@ -682,6 +688,50 @@
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
+        }
+        
+        .nav-btn-modal {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 1001;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-btn-modal:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .prev {
+            left: 20px;
+        }
+        
+        .next {
+            right: 20px;
+        }
+        
+        .image-counter {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: white;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 15px;
+            border-radius: 20px;
+            z-index: 1001;
         }
         
         @keyframes fadeIn {
@@ -782,6 +832,7 @@
             font-weight: bold;
             color: var(--primary);
             overflow: hidden;
+            cursor: pointer;
         }
         
         .ai-qr img {
@@ -858,6 +909,20 @@
             .ai-showcase {
                 flex-direction: column;
             }
+            
+            .nav-btn-modal {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            
+            .prev {
+                left: 10px;
+            }
+            
+            .next {
+                right: 10px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -929,6 +994,9 @@
     <!-- 图片放大模态框 -->
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
+        <button class="nav-btn-modal prev" onclick="changeImage(-1)">&#10094;</button>
+        <button class="nav-btn-modal next" onclick="changeImage(1)">&#10095;</button>
+        <div class="image-counter" id="imageCounter"></div>
         <img class="modal-content" id="modalImage">
         <div id="modalCaption" class="modal-caption"></div>
     </div>
@@ -1423,49 +1491,49 @@
                 <div class="gallery-section">
                     <div class="gallery-title">活动展示</div>
                     <div class="gallery">
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(0)">
                             <img src="深职大2024校园开放日.jpg" alt="深职大2024校园开放日" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2024校园开放日</div>
                                 <div class="caption-desc">就业促进协会工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(1)">
                             <img src="深职大第六届大学生生涯体验周.jpg" alt="深职大第六届大学生生涯体验周" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大第六届大学生生涯体验周</div>
                                 <div class="caption-desc">作为就业促进协会统筹会长代表发言</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(2)">
                             <img src="华为慧通2025届校园招聘宣讲会.jpg" alt="华为慧通2025届校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">华为慧通2025届校园招聘宣讲会</div>
                                 <div class="caption-desc">和华为慧通公司领导合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(3)">
                             <img src="广州石化、深圳地铁2025年校园招聘宣讲会.jpg" alt="广州石化、深圳地铁2025年校园招聘宣讲会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">广州石化、深圳地铁2025年校园招聘宣讲会</div>
                                 <div class="caption-desc">广州石化2025年校园招聘宣讲会现场<br>深圳地铁2025年校园招聘面试现场</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(4)">
                             <img src="2024年深职大首场校级专科综合招聘会.jpg" alt="2024年深职大首场校级专科综合招聘会" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">2024年深职大首场校级专科综合招聘会</div>
                                 <div class="caption-desc">陪深圳人社局领导、校领导、招就办老师巡场</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(5)">
                             <img src="参与的各院级招聘会（经管数创）.jpg" alt="参与的各院级招聘会（经管数创）" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">参与的各院级招聘会（经管数创）</div>
                                 <div class="caption-desc">参与各院级招聘会的工作人员合影留念</div>
                             </div>
                         </div>
-                        <div class="gallery-item" onclick="openModal(this)">
+                        <div class="gallery-item" onclick="openModal(6)">
                             <img src="深职大2025校园开放日校园参观讲解.jpg" alt="深职大2025校园开放日校园参观讲解" class="gallery-img">
                             <div class="gallery-caption">
                                 <div class="caption-title">深职大2025校园开放日校园参观讲解</div>
@@ -1594,28 +1662,28 @@
             <div class="gallery-section">
                 <div class="gallery-title">项目展示</div>
                 <div class="gallery">
-                    <div class="gallery-item" onclick="openModal(this)">
+                    <div class="gallery-item" onclick="openModal(7)">
                         <img src="数据处理任务示例.jpg" alt="数据处理任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据处理任务示例</div>
                             <div class="caption-desc">使用Python进行数据清洗与分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(this)">
+                    <div class="gallery-item" onclick="openModal(8)">
                         <img src="数据可视化任务示例.jpg" alt="数据可视化任务示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化任务示例</div>
                             <div class="caption-desc">使用Tableau制作交互式数据看板</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(this)">
+                    <div class="gallery-item" onclick="openModal(9)">
                         <img src="数据可视化（企业10年内时空变化图）示例.jpg" alt="数据可视化（企业10年内时空变化图）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">数据可视化（企业10年内时空变化图）示例</div>
                             <div class="caption-desc">企业分布与发展趋势时空分析</div>
                         </div>
                     </div>
-                    <div class="gallery-item" onclick="openModal(this)">
+                    <div class="gallery-item" onclick="openModal(10)">
                         <img src="功能开发（飞机大作战游戏）示例.jpg" alt="功能开发（飞机大作战游戏）示例" class="gallery-img">
                         <div class="gallery-caption">
                             <div class="caption-title">功能开发（飞机大作战游戏）示例</div>
@@ -1632,7 +1700,7 @@
                     <p>展示了我在AI辅助编程、前端开发、数据可视化等方面的综合能力。</p>
                     <p>通过技术手段提升工作效率，将创新思维转化为实际应用。</p>
                 </div>
-                <div class="ai-qr" onclick="openModal(this)">
+                <div class="ai-qr" onclick="openModal(11)">
                     <img src="AI+VS=二维码.jpg" alt="AI+VS=二维码">
                 </div>
             </div>
@@ -1640,6 +1708,35 @@
     </div>
 
     <script>
+        // 全局变量
+        let currentImageIndex = 0;
+        const images = [];
+        
+        // 初始化图片数组
+        function initImages() {
+            // 收集所有图片元素
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            const aiQr = document.querySelector('.ai-qr img');
+            
+            // 添加组织协调部分的图片
+            for (let i = 0; i < galleryItems.length; i++) {
+                images.push({
+                    src: galleryItems[i].src,
+                    alt: galleryItems[i].alt,
+                    caption: galleryItems[i].closest('.gallery-item').querySelector('.gallery-caption').innerHTML
+                });
+            }
+            
+            // 添加AI+编程部分的图片
+            if (aiQr) {
+                images.push({
+                    src: aiQr.src,
+                    alt: aiQr.alt,
+                    caption: aiQr.alt
+                });
+            }
+        }
+        
         // 导航切换功能
         function showSection(sectionId) {
             // 隐藏所有部分
@@ -1659,6 +1756,9 @@
         
         // 点击展开/收起课程列表
         document.addEventListener('DOMContentLoaded', function() {
+            // 初始化图片数组
+            initImages();
+            
             const chainItems = document.querySelectorAll('.chain-item');
             chainItems.forEach(item => {
                 item.addEventListener('click', function() {
@@ -1745,28 +1845,39 @@
         }
         
         // 图片放大功能
-        function openModal(element) {
+        function openModal(index) {
+            currentImageIndex = index;
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("modalCaption");
+            const counterText = document.getElementById("imageCounter");
             
             modal.style.display = "block";
+            modalImg.src = images[currentImageIndex].src;
+            modalImg.alt = images[currentImageIndex].alt;
+            captionText.innerHTML = images[currentImageIndex].caption;
+            counterText.innerHTML = `${currentImageIndex + 1} / ${images.length}`;
+        }
+        
+        // 切换图片
+        function changeImage(direction) {
+            currentImageIndex += direction;
             
-            // 获取图片元素
-            let imgElement;
-            if (element.classList.contains('gallery-item')) {
-                imgElement = element.querySelector('img');
-                captionText.innerHTML = element.querySelector('.gallery-caption').innerHTML;
-            } else if (element.classList.contains('ai-qr')) {
-                imgElement = element.querySelector('img');
-                captionText.innerHTML = element.querySelector('img').alt;
-            } else {
-                imgElement = element;
-                captionText.innerHTML = element.alt;
+            // 循环处理
+            if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
             }
             
-            modalImg.src = imgElement.src;
-            modalImg.alt = imgElement.alt;
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("modalCaption");
+            const counterText = document.getElementById("imageCounter");
+            
+            modalImg.src = images[currentImageIndex].src;
+            modalImg.alt = images[currentImageIndex].alt;
+            captionText.innerHTML = images[currentImageIndex].caption;
+            counterText.innerHTML = `${currentImageIndex + 1} / ${images.length}`;
         }
         
         // 关闭模态框
@@ -1785,7 +1896,16 @@
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 document.getElementById('imageModal').style.display = "none";
+            } else if (event.key === "ArrowLeft") {
+                changeImage(-1);
+            } else if (event.key === "ArrowRight") {
+                changeImage(1);
             }
+        });
+        
+        // 点击图片本身切换到下一张
+        document.getElementById('modalImage').addEventListener('click', function() {
+            changeImage(1);
         });
     </script>
 </body>
